@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 export const popupSlice = createSlice({
   name: 'popup',
   initialState: {
-    command: localStorage.getItem("command") || "Summerize this article:",
+    command: localStorage.getItem("command") || "Summerize this article",
   },
   reducers: {
     setCommand: (state, action) => {

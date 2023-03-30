@@ -12,14 +12,7 @@ function init() {
     throw new Error("Cannot find appContainer");
   }
 
-  chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-    if (request.q == "command") {
-      // sendResponse({ command });
-    } else if (request.q == "setCommand") {
-      console.log(request);
-      // sendResponse({ command });
-    }
-  });
+
 
   const root = createRoot(appContainer);
   root.render(
