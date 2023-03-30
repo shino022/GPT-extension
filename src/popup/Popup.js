@@ -45,9 +45,6 @@ const Popup = () => {
           value={inputValue}
         />
       </form>
-      <div>
-        <h1>This is a popup section</h1>
-      </div>
     </div>
   );
 };

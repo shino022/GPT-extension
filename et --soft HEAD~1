@@ -1,0 +1,47 @@
+[33mcommit 3ef1d2edf6da447f933a4dd2a09ba1d062106630[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: shin <sshoony95@gmail.com>
+Date:   Thu Mar 30 16:23:46 2023 -0400
+
+    Clear input field on submit
+
+[33mcommit a03b81c71998e7a3a402935a4a5119a98c58f36b[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: shin <sshoony95@gmail.com>
+Date:   Thu Mar 30 16:20:51 2023 -0400
+
+    Clear input field on submit
+
+[33mcommit f745b1bf75b1078fbd6905e7f539132daf41effe[m
+Author: shin <sshoony95@gmail.com>
+Date:   Thu Mar 30 16:09:07 2023 -0400
+
+    Use redux to store command input
+
+[33mcommit 2307b4d1547b3786730739753f75732a9399e93b[m
+Author: shin <sshoony95@gmail.com>
+Date:   Thu Mar 30 11:25:18 2023 -0400
+
+    Prettier
+
+[33mcommit 5b8416acfb0f26f544d2057fb9afb4692ae6455a[m
+Author: shin <sshoony95@gmail.com>
+Date:   Thu Mar 30 10:58:28 2023 -0400
+
+    Display loading
+
+[33mcommit 9b9080fbabbb2a3b8688789ba700dc78ed326013[m
+Author: shin <sshoony95@gmail.com>
+Date:   Thu Mar 30 10:47:00 2023 -0400
+
+    Fix: popup deosn't print response
+
+[33mcommit 1fe772b3b9e6e86d4baffef8ed7f23262fa2671d[m
+Author: shin <sshoony95@gmail.com>
+Date:   Thu Mar 30 10:42:40 2023 -0400
+
+    Initial commit
+
+[33mcommit c5fe146e008e66a27a7471c4af46ed970e4d9aa1[m
+Author: shin <sshoony95@gmail.com>
+Date:   Thu Mar 30 10:41:25 2023 -0400
+
+    first commit
