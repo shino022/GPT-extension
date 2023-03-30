@@ -2,7 +2,7 @@ import React from "react";
 
 const Popup = ({ response }) => {
   return(
-    <div id="content-popup">{response}ss</div>
+    <div id="content-popup">{response}</div>
   )
 }
 

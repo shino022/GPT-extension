@@ -57,7 +57,7 @@ const ContentScript = () => {
 
   return (
     <div id="content-script">
-      {showPopup && <Popup loading={loading} respnose={response} />}
+      {showPopup && <Popup loading={loading} response={response} />}
       {loading ? <div>loading</div> : <Response response={response} />}
     </div>
   );
