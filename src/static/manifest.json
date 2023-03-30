@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "ChatGPT Highlighter",
+  "version": "1.0",
+  "description": "Highlighter is a Chrome extension that lets you generate responses to any highlighted text on the browser using GPT technology.",
+
+  "action": {
+    "default_title": "Chrome Extension With React",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["contentScript.js"]
+    }
+  ],
+  "permissions": ["storage"]
+}
