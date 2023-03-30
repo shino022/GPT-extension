@@ -1,8 +1,13 @@
 import React from "react";
+import Response from "./Response";
 
-const Popup = ({ response }) => {
+const Popup = ({ response, loading  }) => {
   return(
-    <div id="content-popup">{response}</div>
+    <div id="content-popup">
+      <div>
+        {loading ? <div>loading</div> : <Response response={response} />}
+      </div>
+    </div>
   )
 }
 

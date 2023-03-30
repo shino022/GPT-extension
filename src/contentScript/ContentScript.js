@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "./Content.css";
-import Response from "./Response";
 import Popup from "./Popup";
 import { useSelector, useDispatch } from 'react-redux'
 import { togglePopup } from './contentScriptSlice'
@@ -16,6 +15,7 @@ const ContentScript = () => {
   useEffect(() => {
     const handleMouseUp = async (e) => {
       const selectedText = document.getSelection().toString();
+      setResponse("");
       console.log(showPopup);
       console.log(selectedText);
       /*
@@ -58,7 +58,6 @@ const ContentScript = () => {
   return (
     <div id="content-script">
       {showPopup && <Popup loading={loading} response={response} />}
-      {loading ? <div>loading</div> : <Response response={response} />}
     </div>
   );
 };
