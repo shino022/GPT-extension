@@ -5,7 +5,7 @@ const Popup = ({ response, loading  }) => {
   return(
     <div id="content-popup">
       <div>
-        {loading ? <div>loading</div> : <Response response={response} />}
+        {loading ? <div>Loading</div> : <Response response={response} />}
       </div>
     </div>
   )

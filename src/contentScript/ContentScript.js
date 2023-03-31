@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import "./Content.css";
 import Popup from "./Popup";
 import { useSelector, useDispatch } from 'react-redux'
-import { togglePopup, setCommand } from './contentScriptSlice'
-
+import { togglePopup, setCommand, toggleSwitch } from './contentScriptSlice'
 const ContentScript = () => {
   const showPopup = useSelector((state) => state.contentScript.showPopup);
   const command = useSelector((state => state.contentScript.command));
+  const isOn = useSelector((state => state.contentScript.isOn));
   const dispatch = useDispatch();
 
   const [loading, setLoading] = useState(false);
@@ -14,13 +14,11 @@ const ContentScript = () => {
   const [selectedText, setSelectedText] = useState("");
   useEffect(() => {
     const onMessageFromPopup = () => {chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-      dispatch(setCommand(request.command));
       if (request.q == "command") {
-        // sendResponse({ command });
+        dispatch(setCommand(request.command));
       } else if (request.q == "setCommand") {
-        console.log(request);
-        // sendResponse({ command });
-      }
+        dispatch(setCommand(request.command));
+      } 
     });}
     onMessageFromPopup();
     return () => {onMessageFromPopup()};
@@ -32,9 +30,15 @@ const ContentScript = () => {
       console.log(showPopup);
       console.log(`${command}: ${selectedText}`);
       /*
-      if pop up is already on -> close popup
-      if there's no selectoin -> don't open popup
+      if pop up is already on -> close popup and return
+      if there's no selectoin -> don't open popup and return
+      if badge is off -> return
       */
+
+      const res = await chrome.runtime.sendMessage('get-badge-text');
+      if (res.badge == "OFF") {
+        return; 
+      }
       if (showPopup) {
         dispatch(togglePopup());
         return;

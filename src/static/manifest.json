@@ -8,11 +8,14 @@
     "default_title": "Chrome Extension With React",
     "default_popup": "popup.html"
   },
+  "background": {
+    "service_worker": "background.js"
+  },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
       "js": ["contentScript.js"]
     }
   ],
-  "permissions": ["storage"]
+  "permissions": ["storage", "scripting", "activeTab"]
 }
