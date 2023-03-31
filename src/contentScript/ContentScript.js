@@ -25,6 +25,9 @@ const ContentScript = () => {
   }, [])
   useEffect(() => {
     const handleMouseUp = async (e) => {
+      if (e.target.closest("#content-script")) {
+        return;
+      }
       const selectedText = document.getSelection().toString();
       setResponse("");
       console.log(showPopup);
@@ -36,9 +39,7 @@ const ContentScript = () => {
       */
 
       const res = await chrome.runtime.sendMessage('get-badge-text');
-      if (e.target.closest("#content-script")) {
-        return;
-      }
+      
       if (res.badge == "OFF") {
         return; 
       }
