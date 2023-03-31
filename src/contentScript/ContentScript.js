@@ -36,6 +36,9 @@ const ContentScript = () => {
       */
 
       const res = await chrome.runtime.sendMessage('get-badge-text');
+      if (e.target.closest("#content-script")) {
+        return;
+      }
       if (res.badge == "OFF") {
         return; 
       }
