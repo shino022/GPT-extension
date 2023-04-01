@@ -1,12 +1,20 @@
-chrome.runtime.onInstalled.addListener(() => {
+//default settings on install
+chrome.runtime.onInstalled.addListener((async ()=>{
+  const res = await chrome.storage.sync.get(["badge"])
   chrome.action.setBadgeText({
-    text: 'OFF'
+    text: res.badge || 'OFF'
   });
-});
+}))
+//update badge text
+chrome.tabs.onUpdated.addListener((async ()=>{
+  const res = await chrome.storage.sync.get(["badge"])
+  chrome.action.setBadgeText({
+    text: res.badge || 'OFF'
+  });
+}))
+
 const handleGetBadge = async (sender, sendResponse) => {
   const badge = await chrome.action.getBadgeText({ tabId: sender.tab.id });
-  console.log(badge);
-  // able to fetch and printed but can't send
   sendResponse({badge});
 }
 chrome.runtime.onMessage.addListener(

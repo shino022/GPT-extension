@@ -15,9 +15,8 @@ async function init() {
   const [tab] = await chrome.tabs.query({active: true, currentWindow: true})
   chrome.tabs.sendMessage(
     tab.id,
-    {q: "command", command: localStorage.getItem("command") || ""},
-    (res) => setPlaceholder(res.command)
-  )
+    {q: "command", command: localStorage.getItem("command") || ""}
+  );
 
   const root = createRoot(appContainer);
   root.render(

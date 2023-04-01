@@ -9,17 +9,17 @@ const Popup = () => {
   const dispatch = useDispatch();
   const [inputValue, setInputValue] = useState("");
   const [checked, setChecked] = useState(false);
-  useEffect(async () => {
-    const [tab] = await chrome.tabs.query({
-      active: true,
-      currentWindow: true,
-    });
-    const currentBadge = await chrome.action.getBadgeText({ tabId: tab.id });
-    if (currentBadge == "ON") {
-      setChecked(true);
-    } else {
-      setChecked(false);
-    }
+  useEffect(() => {
+    (async() => {
+      const res = await chrome.storage.sync.get(["badge"])
+      const currentBadge = res.badge;
+      if (currentBadge == "ON") {
+        setChecked(true);
+      } else {
+        setChecked(false);
+      }
+    })();
+    
   },[]);
   useEffect(() => {
     const messageToContent = async () => {
@@ -40,7 +40,6 @@ const Popup = () => {
   const handleChange = (e) => setInputValue(e.currentTarget.value);
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    console.log(e);
     setInputValue("");
     dispatch(setCommand(e.target[0].value));
     //send a message to content to set the commend with the new input
@@ -51,13 +50,13 @@ const Popup = () => {
       active: true,
       currentWindow: true,
     });
-    console.log("toggle clicked");
-    const prevState = await chrome.action.getBadgeText({ tabId: tab.id });
+    const res = await chrome.storage.sync.get(["badge"])
+    const prevState = res.badge;
     const nextState = prevState === "ON" ? "OFF" : "ON";
     await chrome.action.setBadgeText({
-      tabId: tab.id,
       text: nextState,
     });
+    await chrome.storage.sync.set({ badge: nextState });
     if (nextState === "ON") {
       // send a message to content script
       setChecked(true);
