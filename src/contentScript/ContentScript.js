@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Content.css";
 import Popup from "./Popup";
 import { useSelector, useDispatch } from 'react-redux'
-import { togglePopup, setCommand, toggleSwitch } from './contentScriptSlice'
+import { togglePopup, setCommand, turnoffPopup } from './contentScriptSlice'
 const ContentScript = () => {
   const showPopup = useSelector((state) => state.contentScript.showPopup);
   const command = useSelector((state => state.contentScript.command));
@@ -41,6 +41,7 @@ const ContentScript = () => {
       const res = await chrome.runtime.sendMessage('get-badge-text');
       
       if (res.badge == "OFF") {
+        dispatch(turnoffPopup());
         return; 
       }
       if (showPopup) {

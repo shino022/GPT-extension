@@ -11,6 +11,9 @@ export const contentScriptSlice = createSlice({
     togglePopup: (state) => {
       state.showPopup = !state.showPopup
     },
+    turnoffPopup: (state) => {
+      state.showPopup = false
+    },
     setCommand: (state, action) => {
       state.command = action.payload;
       localStorage.setItem("command", action.payload);
@@ -21,6 +24,6 @@ export const contentScriptSlice = createSlice({
   },
 })
 
-export const { togglePopup, setCommand, toggleSwitch } = contentScriptSlice.actions
+export const { togglePopup, setCommand, toggleSwitch, turnoffPopup } = contentScriptSlice.actions
 
 export default contentScriptSlice.reducer
