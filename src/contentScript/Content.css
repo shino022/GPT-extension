@@ -11,7 +11,7 @@
   width: 350px;
   max-height: 50vh;
 
-  padding: 30px;
+  padding: 30px 35px 30px 30px;
   overflow: auto;
   box-sizing: border-box;
 
@@ -24,7 +24,7 @@
 }
 
 #content-popup::-webkit-scrollbar{
-  width: 12px;
+  width: 8px;
 }
 
 #content-popup::-webkit-scrollbar-thumb{
@@ -45,6 +45,20 @@
   height: 50px;
   animation: spin 1s linear infinite;
   box-sizing: border-box;
+}
+
+#copy-icon {
+  position: fixed;
+  top: 9px;
+  cursor: pointer;
+  right: 14px;
+}
+
+#copy-icon-text {
+  position: fixed;
+  font-size: 10px;
+  top: 32px;
+  right: 12px;
 }
 
 @keyframes spin {
