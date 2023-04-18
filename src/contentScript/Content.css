@@ -52,6 +52,7 @@
   top: 9px;
   cursor: pointer;
   right: 14px;
+  z-index: 2;
 }
 
 #copy-icon-text {
