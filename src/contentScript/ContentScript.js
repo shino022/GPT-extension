@@ -60,7 +60,7 @@ const ContentScript = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          text: `${command}: ${selectedText}`,
+          text: `Use \n for newline and ${command}: ${selectedText}`,
         }),
       });
       const data = await response.json();
