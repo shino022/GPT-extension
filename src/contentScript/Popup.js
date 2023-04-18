@@ -4,9 +4,7 @@ import Response from "./Response";
 const Popup = ({ response, loading  }) => {
   return(
     <div id="content-popup">
-      <div>
-        {loading ? <div>Loading</div> : <Response response={response} />}
-      </div>
+      {loading ? <div id="loading">Loading...</div> : <Response response={response} />}
     </div>
   )
 }

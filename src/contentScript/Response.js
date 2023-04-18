@@ -3,7 +3,7 @@ import { IconCopy } from "@tabler/icons-react";
 const Response = ({ response }) => {
   const onClickCopyButton = useCallback(
     (e) => {
-      console.log(e);
+      console.log(response);
       navigator.clipboard.writeText(response);
     },
     [response]
@@ -24,7 +24,9 @@ const Response = ({ response }) => {
         onClick={onClickCopyButton}
       />
       {showCopyIconText && <div id="copy-icon-text">Copy</div>}
-      {response}
+      <div id="response-text">
+        {response}
+      </div>
     </div>
   );
 };
