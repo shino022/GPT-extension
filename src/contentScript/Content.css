@@ -70,7 +70,7 @@
   white-space: pre-wrap;
 }
 
-#loading {
+#content-popup-loading {
   font-weight: bold;
   display:inline-block;
   font-family: monospace;
